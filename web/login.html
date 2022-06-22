@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div class="outer_box">
+    <form>
+    <div class="login_box">
+
+        <div class="title">
+            <embed src="img/AudiLogo.svg" type="image/svg+xml" />
+        </div>
+        <p><i>用户名：</i><input type="text" id="username"placeholder="3-10位英文字母或数字"></p>
+        <p><i>密码：</i><input type="text" id="password1"placeholder="密码6-10位"></p>
+        <p><i>确认密码：</i><input type="text" id="password2"placeholder="密码6-10位"></p>
+
+        <button class="zhece" type="submit"onclick="checkRegisterForm()">注册</button>
+        <button class="chongzhi" type="reset">重置</button>
+    </div>
+    </form>
+    </div>
+</div>
+</body>
+<script>
+    function checkRegisterForm() {
+        var username = document.getElementById("username");
+        var password1 = document.getElementById("password1");
+        var password2 = document.getElementById("password2");
+        var name_re=/^\S[0-9a-zA-Z]{3,8}/;
+        var pwd_re=/^\S{6,10}$/;
+        if(name_re.test(username.value)&&pwd_re.test(password1.value)&&password1.value===password2.value){
+            alert("提交成功！");
+            window.open("https://www.audi.cn")
+        }
+        if(!name_re.test(username.value)){
+            alert("用户名必须是3-10位英文字母或数字");
+        }
+        if(!pwd_re.test(password1.value)){
+            alert("密码必须是6-10位");
+            console.log("password="+password1.value+"password2="+password2.value);
+        }else{
+            alert("密码符合 要求")
+        }
+        if(password1.value!==password2.value){
+            alert("密码输入不一致");
+        }
+
+    }
+</script>
+</html>
